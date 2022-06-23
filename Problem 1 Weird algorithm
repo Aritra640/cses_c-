@@ -1,0 +1,96 @@
+//task : https://cses.fi/problemset/task/1068/
+#include<bits/stdc++.h>
+#include<ext/pb_ds/assoc_container.hpp> 
+#include<ext/pb_ds/tree_policy.hpp> 
+#include<ext/pb_ds/trie_policy.hpp>
+ 
+#pragma GCC optimise("0fast")
+#pragma GCC optimise("0s")
+#pragma GCC optimise("03")
+ 
+using  namespace std;
+using namespace __gnu_pbds;
+ 
+#define   ll            long long int
+#define   lf            long double
+#define   loop(i,a,b)   for(ll i = a ; i <= b ; i ++)
+#define   vi            vector<ll>
+#define   matrix        vector<vector<ll>>
+#define   bit(x)        __builtin_popcount(x)
+#define   ctz(x)        __builtin_ctz(x)
+#define   lambda(x)     void lambda(auto& x)
+#define   mod           1000000007
+#define   pi            3.1415926535897932384626
+#define   test_case     ll t;cin>>t;for(;t>0;t--)
+#define   max_precise   std::setprecision(std::numeric_limits<long double>::digits10 + 1)
+#define   precise(n)    std::setprecision(n)
+#define   endl          '\n'
+#define   fi            first
+#define   se            second
+#define   pa            pair<ll,ll>
+#define   all(x)        x.begin(),x.end()
+#define   sort(x)       sort(x.begin(),x.end())
+#define   rev(x)        reverse(all(x))
+#define   search(x,a)   binary_search(all(x),a)
+ 
+typedef tree<ll, null_type, std::less<ll>, rb_tree_tag, tree_order_statistics_node_update>            ordered_set ;
+typedef trie<std::string,null_type,trie_string_access_traits<>,pat_trie_tag,trie_prefix_search_node_update> trie_t;
+ 
+void file_i_o(){
+ 
+    std::ios_base::sync_with_stdio(0); 
+    std::cin.tie(0); 
+    std::cout.tie(0);
+    /*#ifndef ONLINE_JUDGE
+        freopen("input.txt", "r", stdin);
+        freopen("output.txt", "w", stdout);
+    #endif*/
+    return ;
+}
+ 
+ll power(ll a, ll b) // cal a ^ b
+{
+    ll res = 1;
+    while (b > 0) {
+        if (b & 1)
+            res = res * a;
+        a = a * a;
+        b >>= 1;
+    }
+    return res;
+}
+ 
+ll binpow(ll a, ll b, ll m) // (a^b)%m
+{
+    a %= m;
+    ll res = 1;
+    while (b > 0) {
+        if (b & 1)
+            res = res * a % m;
+        a = a * a % m;
+        b >>= 1;
+    }
+    return res;
+}
+ 
+int32_t main(int argc, char const *argv[]){
+    file_i_o();
+    clock_t start = clock();
+    //Write Your Code Here
+    //cout<<"HEllO WORLD\n";
+ 
+    ll n;
+    cin>>n;
+    while(n != 1){
+        cout<<n<<" ";
+        if(n&1) n = (3*n) + 1;
+        else n >>= 1;
+    }
+    cout<<1<<endl;
+ 
+    #ifndef ONLINE_JUDGE
+    clock_t term = clock();
+    cout<<"\n\n\nExecuted in "<<fixed<<(float)(term-start)/CLOCKS_PER_SEC<<"sec\n";
+    #endif
+    return 0;
+}
